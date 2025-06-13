@@ -78,6 +78,8 @@ public class Usuarios implements Serializable {
     }
     
     
+    
+    
 
     public Usuarios(Integer codiUsua) {
         this.codiUsua = codiUsua;

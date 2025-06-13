@@ -5,8 +5,8 @@
 package servlet;
 
 import com.google.gson.Gson;
-import dao.BlockJpaController;
-import dto.Block;
+import dao.UsuariosJpaController;
+import dto.Usuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -20,27 +20,24 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Piero
+ * @author Wilbert
  */
-@WebServlet(name = "BlockchainViewServlet", urlPatterns = {"/blockchainViewServlet"})
-public class BlockchainViewServlet extends HttpServlet {
-
+@WebServlet(name = "UsuariosListServlet", urlPatterns = {"/usuariosListServlet"})
+public class UsuariosListServlet extends HttpServlet {
     private EntityManagerFactory emf;
-    private BlockJpaController blockDao;
+    private UsuariosJpaController usuariosDao;
 
     @Override
     public void init() throws ServletException {
         emf = Persistence.createEntityManagerFactory("com.mycompany_BlockchainWebApp_war_1.0-SNAPSHOTPU");
-        blockDao = new BlockJpaController(emf);
+        usuariosDao = new UsuariosJpaController(emf);
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Block> blockchain = blockDao.findBlockEntities();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<Usuarios> lista = usuariosDao.findUsuariosEntities();
 
         response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.print(new Gson().toJson(blockchain));
-        out.flush();
+        response.getWriter().write(new Gson().toJson(lista));
     }
 }
