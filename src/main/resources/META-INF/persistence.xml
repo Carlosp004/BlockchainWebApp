@@ -3,6 +3,8 @@
   <persistence-unit name="com.mycompany_BlockchainWebApp_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>dto.Block</class>
+    <class>dto.Trabajadores</class>
+    <class>dto.Usuarios</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/blockchain_db?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

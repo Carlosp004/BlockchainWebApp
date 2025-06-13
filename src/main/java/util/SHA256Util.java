@@ -21,4 +21,9 @@ public class SHA256Util {
             throw new RuntimeException("Error al aplicar SHA-256: " + e.getMessage());
         }
     }
+    
+    public static void main(String[] args) {
+        String ppassSHA512 = SHA256Util.aplicarSHA256("1234");
+        System.out.println(ppassSHA512);
+    }
 }
