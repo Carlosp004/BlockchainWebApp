@@ -23,7 +23,7 @@ public class SHA256Util {
     }
     
     public static void main(String[] args) {
-        String ppassSHA512 = SHA256Util.aplicarSHA256("1234");
+        String ppassSHA512 = SHA256Util.aplicarSHA256("1238");
         System.out.println(ppassSHA512);
     }
 }
